@@ -1,0 +1,77 @@
+
+The Passenger Jerry Tyson purchased the following ticket.
+Ticket Details
+	Ticket Number : 4
+	Ticket Price : 1800
+	Passenger Info 
+		UserID : Jerry Tyson
+		Phone Number : +61385749384
+		Email Address : jerry@gmail.com
+	Travel Info 
+		Destination : Melbourne
+		Departure Location : Adelaide
+		Date : 2024-01-15
+		Time : 06.00 PM
+
+* Either paper or toner is not available to print out a ticket.
+* Either paper or toner is not available to print out a ticket.
+* Either paper or toner is not available to print out a ticket.
+* Paper Technician refilled the Paper sheets.
+* Either paper or toner is not available to print out a ticket.
+* Either paper or toner is not available to print out a ticket.
+* Either paper or toner is not available to print out a ticket.
+* Toner Technician refilled the Toner Cartridge.
+
+The Passenger Mike Ross purchased the following ticket.
+Ticket Details
+	Ticket Number : 3
+	Ticket Price : 2000
+	Passenger Info 
+		UserID : Mike Ross
+		Phone Number : +61978472932
+		Email Address : mike@gmail.com
+	Travel Info 
+		Destination : Perth
+		Departure Location : Adelaide
+		Date : 2024-01-08
+		Time : 04.00 PM
+
+
+The Passenger Sofia Dunphy purchased the following ticket.
+Ticket Details
+	Ticket Number : 2
+	Ticket Price : 1500
+	Passenger Info 
+		UserID : Sofia Dunphy
+		Phone Number : +61473729492
+		Email Address : sofia@gmail.com
+	Travel Info 
+		Destination : Sydney
+		Departure Location : Melbourne
+		Date : 2024-01-12
+		Time : 08.00 AM
+
+
+The Passenger Rachel Green purchased the following ticket.
+Ticket Details
+	Ticket Number : 1
+	Ticket Price : 1000
+	Passenger Info 
+		UserID : Rachel Green
+		Phone Number : +61248393943
+		Email Address : rachel@gmail.com
+	Travel Info 
+		Destination : Sydney
+		Departure Location : Perth
+		Date : 2024-01-10
+		Time : 11.00 AM
+
+
+---------------------------------------------------------------
+Final Ticket Machine Status
+Paper Level : 6
+Toner Level : 12
+---------------------------------------------------------------
+
+
+Process finished with exit code 0

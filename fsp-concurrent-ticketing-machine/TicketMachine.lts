@@ -1,0 +1,28 @@
+// W. A. Nisini Niketha | w1809840 | 20191213
+// FSP Program for shared ticketing machine process
+
+const W1809840_INITIAL_TICKET_VALUE = 3
+const W1809840_MAX_PAPER_LEVEL = 2
+const W1809840_MAX_TONER_LEVEL = 2
+
+// Set of actions
+set W1809840_ACTIONS = {acquireMachine, print, releaseMachine, acquireRefillpaper, refillPaper, releaseRefillpaper, acquireTonerRefill, releaseTonerRefill, refillToner} 
+
+// Machine Process
+W1809840_MACHINE = W1809840_MACHINE [W1809840_MAX_PAPER_LEVEL][W1809840_MAX_TONER_LEVEL],
+W1809840_MACHINE [i:0..W1809840_MAX_PAPER_LEVEL][j:0..W1809840_MAX_TONER_LEVEL] = 
+	(when (i > 0 && j > 0) acquireMachine -> print -> releaseMachine -> W1809840_MACHINE[i-1][j-1] | when (i == 0) acquireRefillpaper -> refillPaper -> releaseRefillpaper -> W1809840_MACHINE[W1809840_MAX_PAPER_LEVEL][j]
+	| when (j == 0) acquireTonerRefill -> refillToner -> releaseTonerRefill -> W1809840_MACHINE[i][W1809840_MAX_TONER_LEVEL])  + W1809840_ACTIONS.
+ 
+// Passenger Process
+W1809840_PASSENGER (COUNT = W1809840_MAX_PAPER_LEVEL) = W1809840_PASSENGER [COUNT],
+W1809840_PASSENGER [i:0..COUNT] = if(i>0) then (acquireMachine -> print -> releaseMachine -> W1809840_PASSENGER[i-1]) else (terminate -> END) + W1809840_ACTIONS.
+
+// Paper Technician Process
+W1809840_PAPER_TECHNICIAN = (acquireRefillpaper -> refillPaper -> releaseRefillpaper -> W1809840_PAPER_TECHNICIAN | terminate -> END) + W1809840_ACTIONS.
+
+// Toner Technician Process
+W1809840_TONER_TECHNICIAN = (acquireTonerRefill -> refillToner -> releaseTonerRefill -> W1809840_TONER_TECHNICIAN | terminate -> END) + W1809840_ACTIONS.
+
+// Ticketing Machine Composite Process
+|| W1809840_TICKETING_MACHINE = (p1: W1809840_PASSENGER (1) || p2:W1809840_PASSENGER (1) || pt: W1809840_PAPER_TECHNICIAN ||  tt: W1809840_TONER_TECHNICIAN || {p1,p2,pt,tt}::W1809840_MACHINE) / {terminate/ {p1.terminate, p2.terminate, pt.terminate, tt.terminate}}.
